@@ -1,0 +1,10 @@
+{
+	"/": [],
+	"/bmgcsv": [],
+	"/bmgcsv/tocsv": [
+		"src/routes/bmgcsv/tocsv/+server.js"
+	],
+	"/bmgcsv/totxt": [
+		"src/routes/bmgcsv/totxt/+server.js"
+	]
+}
