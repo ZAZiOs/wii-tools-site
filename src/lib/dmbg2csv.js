@@ -1,5 +1,14 @@
 import { json2csv, csv2json } from 'json-2-csv';
 
+/* 
+
+Я, блять, не знаю сколько багов ещё найду с этим скриптом.
+Было бы просто замечательно если бы этот скрипт работал идеально,
+но у него судьба быть говнокодом, а значит и поделать ничего нельзя...
+
+*/
+
+
 export function toCSV (buffer, toCSVoptions) {
     let splitted = String(buffer).replaceAll('\r', '').split('\n')
     let at_codes = ""
@@ -67,7 +76,7 @@ export function toCSV (buffer, toCSVoptions) {
 }
 
 export function toTXT (buffer, toCSVoptions) {
-    let input = csv2json(String(buffer), toCSVoptions);
+    let input = csv2json(String(buffer).replaceAll('\r', ""), toCSVoptions);
     let result = "#BMG\n"
     for (let line of input) {
         if (line.location == "@CODES") {
@@ -75,7 +84,7 @@ export function toTXT (buffer, toCSVoptions) {
             for (let i in codes) {
                 result += codes[i] + '\n'
                 if (i == (codes.length - 1)) {
-                    result += "#-- Script done by ZAZiOs wii.zazios.ru --\n"
+                    result += "#-- Script done with love by ZAZiOs @ wii.zazios.ru --\n"
                 }
             }
         } else if (String(line.translation).includes('<DONTEDIT> ')) {
