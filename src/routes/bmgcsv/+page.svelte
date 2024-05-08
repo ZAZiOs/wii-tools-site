@@ -81,6 +81,8 @@ let page = 'b2c'
 <p><code>[!COMMENT!]</code> - parcer will ignore this string.</p>
 <br>
 <p>Some strings of the translation column can be marked with <code>[original]</code>, in that case the string will be the same as the one in original column.</p>
+<p>If in your translation there are less strings than in original - you can use <code>[skipline]</code> tag</p>
+<p>If there is text in original and you want to keep that translation string empty - use <code>[blank]</code> tag</p>
 <p><code>&ltDONTEDIT&gt</code> strings should be changed if you know what you're doing. Usually it's some unusual string that the parser hasn't figured out how to convert to the table.</p>
 
 

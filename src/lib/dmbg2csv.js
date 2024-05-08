@@ -91,14 +91,16 @@ export function toTXT (buffer, toCSVoptions) {
             result += '\n' + String(line.translation).replace('<DONTEDIT> ', '')
         } else if (line.location != "[!COMMENT!]"){
             if (!line.translation || line.translation == "[original]") line.translation = line.original
-            if (line.location == "[newline]") {
-                result += `\\n\n	+ ${line.translation}` }
-            else if (line.attrib) {
-                result += `\n${line.location.replace('!', '')} ${line.attrib} = ${line.translation}`
-            } else {
-                result += `\n${line.location.replace('!', '')} = ${line.translation}`
+            else if (line.translation == "[blank]") line.translation = ""
+            if (line.translation != "[skipline]"){
+                if (line.location == "[newline]") {
+                    result += `\\n\n	+ ${line.translation}` }
+                else if (line.attrib) {
+                    result += `\n${line.location.replace('!', '')} ${line.attrib} = ${line.translation}`
+                } else {
+                    result += `\n${line.location.replace('!', '')} = ${line.translation}`
+                }
             }
-            
         }
     }
     return result
