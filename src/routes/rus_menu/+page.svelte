@@ -3,6 +3,11 @@ let page = 'Wii'
     
 </script>
 
+<svelte:head>
+  <title>Wii Menu [RUS]</title>
+  <meta property="description" content="Инструкция по установке русского меню Wii от CaXaP и Aerdemost" />
+</svelte:head>
+
 <div class="container mt-3 d-flex justify-content-center">
 
 <div class="main-container">

@@ -1,3 +1,9 @@
+<svelte:head>
+  <title>ZAZiOs Wii tools</title>
+  <meta property="description" content="This site contains stuff i made for myself, but it also can be useful for someone else." />
+</svelte:head>
+
+
 <div class="container mt-4 text-center d-flex align-items-center flex-column">
 <h1 class="text-center">ZAZiOs Wii tools</h1>
 <p>Welcome to the ZAZiOs Wii Tools website.</p>

@@ -3,6 +3,11 @@ let page = 'b2c'
 
 </script>
 
+<svelte:head>
+  <title>WBMGT - CSV Tool</title>
+  <meta property="description" content="On this page you can find wbmgt.txt file to csv converter." />
+</svelte:head>
+
 <div class="container mt-3 d-flex justify-content-center">
 
 <div class="main-container">
