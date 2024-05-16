@@ -11,6 +11,9 @@ import { page } from '$app/stores';
     <li class="nav-item">
         <a class="nav-link" class:active={$page.url.pathname == '/bmgcsv'} href="/bmgcsv">WBMGT - CSV</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" class:active={$page.url.pathname == '/rus_menu'} href="/rus_menu">Wii Menu [RUS]</a>
+    </li>
     </ul>
 </div>
 

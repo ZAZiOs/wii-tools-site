@@ -6,5 +6,6 @@
 	],
 	"/bmgcsv/totxt": [
 		"src/routes/bmgcsv/totxt/+server.js"
-	]
+	],
+	"/rus_menu": []
 }
