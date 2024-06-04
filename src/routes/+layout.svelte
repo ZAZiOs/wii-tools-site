@@ -1,6 +1,8 @@
 <script>
 let yes = true
 import { page } from '$app/stores';
+import { inject } from '@vercel/analytics'
+inject()
 </script>
 
 <div class="bg-dark-subtle pt-4 w-100">
