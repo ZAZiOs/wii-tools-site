@@ -1,31 +1,35 @@
 import { error, redirect } from "@sveltejs/kit";
-import { toCSV } from "$lib/dmbg2csv.js";
+import { toCSV } from "$lib/bmg2csv.v2/tocsv.js";
 
-export async function POST({ request }) {
-    try {
-    const formData = Object.fromEntries(await request.formData())
-    let {file, filename, delimeter} = formData
-    if (!file.name || file.name === 'undefined') {
-        error(400, 'You must provide a file to upload');
+import { json } from '@sveltejs/kit';
+
+export const POST = async ({ request }) => {
+  const formData = await request.formData();
+  const result = {};
+  const filename = formData.get('resultname')
+  const delimiter = formData.get('delimiter')
+  for (const key of formData.keys()) {
+    if (key.startsWith('file')) {
+      const file = formData.get(key);
+      const languageKey = key.replace('file', 'language');
+      const language = formData.get(languageKey);
+
+      const text = await file.text(); // read file content
+      result[language] = text
     }
-    if (!delimeter) {delimeter = ','}
-    if (!filename) {filename = 'result'}
-    let buffer = Buffer.from(await file.arrayBuffer())
-    
-    let result = toCSV(buffer, {delimeter})
-    return new Response(
-        result,
-        {
-            status: 200,
-            headers: {
-                'Content-Type': 'application/octet-stream',
-                'Content-Disposition':
-                `attachment; filename*=UTF-8''${encodeURIComponent(filename + '.csv')}`,
-            },
-        }
-    );}
-    catch (err) {
-        console.log(err)
-        error(500, err)
+  }
+
+  let csv = toCSV(result, {delimiter: {field: delimiter}, emptyFieldValue: ''})
+
+  return new Response(
+    csv,
+    {
+        status: 200,
+        headers: {
+            'Content-Type': 'text/csv',
+            'Content-Disposition':
+            `attachment; filename*=UTF-8''${encodeURIComponent(filename + '.csv')}`,
+        },
     }
+    );
 };
