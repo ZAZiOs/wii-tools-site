@@ -1,7 +1,4 @@
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-import path from 'path';
-const convert = require(path.resolve('./xml-js-patch/lib/index.js'));
+import convert from 'xml-js'
 import { csv2json } from 'json-2-csv';
 
 export const toXML = (weather_xml, country_csv, global_csv, delimiter) => {

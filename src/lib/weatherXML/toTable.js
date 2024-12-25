@@ -1,7 +1,4 @@
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const convert = require('./xml-js-patch/lib/index.js');
-
+import convert from 'xml-js'
 import { json2csv } from 'json-2-csv';
 import fs from 'fs'
 
