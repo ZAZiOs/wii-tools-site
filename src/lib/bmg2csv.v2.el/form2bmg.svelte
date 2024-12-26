@@ -23,8 +23,8 @@ function handleFileChange(e) {
       <div class="input-group mt-2">
         <span class="input-group-text">Delimiter</span>
         <select class="form-select" name="delimiter">
-          <option value=",">,</option>
-          <option value=";" selected>;</option>
+          <option value="," selected>,</option>
+          <option value=";">;</option>
           <option value="\t">TAB</option>
         </select>
       </div>
