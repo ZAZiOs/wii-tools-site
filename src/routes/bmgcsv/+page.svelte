@@ -42,6 +42,10 @@ too lazy to do it rn.
 </div>
 </div>
 
+<div class="text-center mt-2">
+<a href="/bmgcsv/v1" class="text-secondary">old version here</a>
+</div>
+
 <style>
     .main-container {
         max-width: 60rem;
